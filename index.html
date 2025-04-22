@@ -9,7 +9,8 @@
 <body>
 
   <header>
-    <div class="logo">GAVER</div>
+    <div class="logo">
+      <a href=""https://www.naver.com" target="_blank">GAVER</a>
 
     <div class="search-bar">
       <input type="text" placeholder="검색어를 입력하세요">
@@ -74,11 +75,34 @@
   
     clickableElements.forEach(item => {
       item.addEventListener('click', (e) => {
-        e.preventDefault(); // 링크 클릭해도 이동 막기
+        // GAVER 로고(a) 클릭은 막지 않기
+        if (item.closest('.logo')) return;
+  
+        e.preventDefault(); // 기본 클릭 막기
         alert('거짓말입니다~ 🤣');
       });
     });
+  
+    // 검색 버튼 기능
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+  
+    searchButton.addEventListener('click', function() {
+      const keyword = searchInput.value.trim();
+      if (keyword !== '') {
+        const naverUrl = `https://search.naver.com/search.naver?query=${encodeURIComponent(keyword)}`;
+        window.open(naverUrl, '_blank');
+      }
+    });
+  
+    // 검색창 엔터 기능
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        searchButton.click();
+      }
+    });
   </script>
+  
   
 </body>
 </html>
