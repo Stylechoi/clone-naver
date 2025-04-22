@@ -75,11 +75,13 @@
   
     clickableElements.forEach(item => {
       item.addEventListener('click', (e) => {
-        // GAVER 로고(a) 클릭은 막지 않기
-        if (item.closest('.logo')) return;
+        // 만약 이 a태그가 .logo 안에 있는 a태그면, 기본동작 허용
+        if (item.parentElement.classList.contains('logo')) {
+          return; // GAVER 로고는 막지 말고 통과
+        }
   
-        e.preventDefault(); // 기본 클릭 막기
-        alert('거짓말입니다~ 🤣');
+        e.preventDefault(); // 기본 이동 막고
+        alert('거짓말입니다~ 🤣'); // 알림 띄우기
       });
     });
   
@@ -102,6 +104,7 @@
       }
     });
   </script>
+  
   
   
 </body>
