@@ -7,26 +7,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
     <div class="logo">
-      <a href=""https://www.naver.com" target="_blank">GAVER</a>
+      <a href="https://www.naver.com" target="_blank">GAVER</a>
+    </div>
 
     <div class="search-bar">
-      <input type="text" placeholder="검색어를 입력하세요">
-      <button type="submit">검색</button>
+      <input type="text" id="search-input" placeholder="검색어를 입력하세요">
+      <button id="search-button">검색</button>
     </div>
 
-    <div class="menu">
+    <nav class="menu">
       <ul>
-        <li><a href="#">홈</a></li>
-        <li><a href="#">뉴스</a></li>
-        <li><a href="#">메일</a></li>
-        <li><a href="#">카페</a></li>
-        <li><a href="#">블로그</a></li>
-        <li><a href="#">쇼핑</a></li>
+        <li><a href="https://www.naver.com">홈</a></li>
+        <li><a href="https://news.naver.com">뉴스</a></li>
+        <li><a href="https://mail.naver.com">메일</a></li>
+        <li><a href="https://section.cafe.naver.com">카페</a></li>
+        <li><a href="https://section.blog.naver.com">블로그</a></li>
+        <li><a href="https://shopping.naver.com">쇼핑</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <main>
@@ -58,54 +58,70 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="footer__inner">
-      <p>
-        © 2025 Gaver Corp. All rights reserved. |
+      <p>© 2025 Gaver Corp. All rights reserved. |
         <a href="#">이용약관</a> |
         <a href="#">개인정보처리방침</a> |
         <a href="#">고객센터</a> |
         <a href="#">대표 최도형</a>
       </p>
+      <div class="mode-switch">
+        <button id="toggle-mode">PC / 모바일 보기 전환</button>
+      </div>
     </div>
   </footer>
 
-  <script>
-    const clickableElements = document.querySelectorAll('button, a, .blog-item, .news-item, .shopping-item');
-  
-    clickableElements.forEach(item => {
-      item.addEventListener('click', (e) => {
-        // 만약 이 a태그가 .logo 안에 있는 a태그면, 기본동작 허용
-        if (item.parentElement.classList.contains('logo')) {
-          return; // GAVER 로고는 막지 말고 통과
-        }
-  
-        e.preventDefault(); // 기본 이동 막고
-        alert('거짓말입니다~ 🤣'); // 알림 띄우기
-      });
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchButton = document.getElementById('search-button');
+  const searchInput = document.getElementById('search-input');
+  const modeButton = document.getElementById('toggle-mode');
+
+  searchButton.addEventListener('click', function() {
+    const keyword = searchInput.value.trim();
+    if (keyword !== '') {
+      const url = `https://search.naver.com/search.naver?query=${encodeURIComponent(keyword)}`;
+      window.open(url, '_blank');
+    }
+  });
+
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchButton.click();
+    }
+  });
+
+  const newsItems = document.querySelectorAll('.news-item');
+  const shoppingItems = document.querySelectorAll('.shopping-item');
+  const blogItems = document.querySelectorAll('.blog-item');
+
+  const newsMessages = {
+    "바퀴 벌레 등장 \"지옥의 시작\"": "바퀴는 강하다 ㅋㅋ",
+    "바퀴벌레 퇴치는 정말 가능할까?": "아마도 불가능할걸?",
+    "청년 백수 증가 이재명 당선 후 향후 경제 전망은?": "희망을 가지자!"
+  };
+
+  newsItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const message = newsMessages[this.textContent.trim()] || '그런게 있겠냐 ㅋㅋ';
+      alert(message);
     });
-  
-    // 검색 버튼 기능
-    const searchButton = document.getElementById('search-button');
-    const searchInput = document.getElementById('search-input');
-  
-    searchButton.addEventListener('click', function() {
-      const keyword = searchInput.value.trim();
-      if (keyword !== '') {
-        const naverUrl = `https://search.naver.com/search.naver?query=${encodeURIComponent(keyword)}`;
-        window.open(naverUrl, '_blank');
-      }
+  });
+
+  [...shoppingItems, ...blogItems].forEach(item => {
+    item.addEventListener('click', function() {
+      const keyword = this.textContent.trim();
+      const url = `https://search.naver.com/search.naver?query=${encodeURIComponent(keyword)}`;
+      window.open(url, '_blank');
     });
-  
-    // 검색창 엔터 기능
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        searchButton.click();
-      }
-    });
-  </script>
-  
-  
-  
+  });
+
+  modeButton.addEventListener('click', function() {
+    document.body.classList.toggle('mobile-mode');
+  });
+});
+</script>
+
 </body>
 </html>

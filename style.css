@@ -1,142 +1,130 @@
-/* 기본 초기화 */
-* {
+/* 기본 세팅 */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background: #ffffff;
-  color: #333;
-  min-height: 100vh;
+  background: #111;
+  color: white;
+  font-family: 'Arial', sans-serif;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ====== 헤더 영역 ====== */
+/* 헤더 스타일 */
 header {
+  background: #000;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  justify-content: space-between;
 }
 
 /* 로고 */
-.logo {
-  font-size: 28px;
+.logo a {
+  color: #03C75A;
+  font-size: 36px;
   font-weight: bold;
-  color: #03C75A; /* 네이버 초록 */
-  flex: 1;
+  text-decoration: none;
 }
 
-/* 검색창 */
+/* 검색바 */
 .search-bar {
-  flex: 2;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-left: 190px; /
 }
 
 .search-bar input {
   width: 400px;
   height: 40px;
   padding: 0 15px;
-  border: 1px solid #ccc;
   border-radius: 20px;
+  border: none;
   font-size: 16px;
 }
 
 .search-bar button {
-  height: 40px;
-  padding: 0 20px;
-  background-color: #03C75A;
-  color: #fff;
+  background: #03C75A;
   border: none;
+  color: white;
+  padding: 0 20px;
   border-radius: 20px;
   font-size: 16px;
+  height: 40px;
   cursor: pointer;
 }
 
 .search-bar button:hover {
-  background-color: #029e49;
+  background: #029e49;
 }
+
+
 
 /* 메뉴 */
-.menu {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .menu ul {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
 }
 
-.menu li a {
+.menu ul li a {
+  color: white;
   text-decoration: none;
-  color: black;
   font-size: 16px;
-  font-weight: 500;
 }
 
-.menu li a:hover {
-  color: #03C75A;
-  border-bottom: 2px solid #03C75A;
-  padding-bottom: 3px;
-}
-
-/* ====== 메인 콘텐츠 영역 ====== */
+/* 메인 */
 main {
+  flex: 1;
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
-  flex: 1;
 }
 
-/* 공통 섹션 스타일 */
 section {
   margin-bottom: 60px;
 }
 
-/* 뉴스, 쇼핑, 블로그 공통 리스트 스타일 */
+/* 섹션 제목 */
+h2 {
+  color: #03C75A;
+}
+
+/* 뉴스 / 쇼핑 / 블로그 리스트 */
 .news-list, .shopping-list, .blog-list {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* 카드 공통 스타일 */
 .news-item, .shopping-item, .blog-item {
-  flex: 1;
-  min-width: 250px;
-  background: #fff;
+  flex: 1 1 300px;
+  background: #181818;
+  border: 1px solid #333;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 .news-item:hover, .shopping-item:hover, .blog-item:hover {
   transform: translateY(-5px);
+  background: #222;
 }
 
-/* ====== 푸터 영역 ====== */
+/* 푸터 */
 footer {
-  background: #f5f5f5;
-  padding: 30px 0;
+  background: #000;
+  padding: 20px 10px;
   font-size: 14px;
-  color: #666;
-  border-top: 1px solid #ddd;
+  color: #888;
 }
 
 .footer__inner {
@@ -146,7 +134,7 @@ footer {
 }
 
 .footer__inner a {
-  color: #666;
+  color: #888;
   text-decoration: none;
   margin: 0 5px;
 }
@@ -155,60 +143,57 @@ footer {
   text-decoration: underline;
 }
 
-/* ====== 반응형 (모바일 대응) ====== */
-@media (max-width: 768px) {
-  .search-bar {
-    flex-direction: column;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .search-bar input {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menu ul li {
-    margin: 5px 0;
-  }
-
-  .news-list,
-  .shopping-list,
-  .blog-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .news-item,
-  .shopping-item,
-  .blog-item {
-    width: 90%;
-    margin-bottom: 10px;
-  }
+/* 모드 스위치 버튼 */
+.mode-switch {
+  margin-top: 10px;
 }
 
-/* 로고 안의 링크 스타일 초기화 */
-.logo a {
-  color: #03C75A; /* 네이버 초록색 */
-  text-decoration: none; /* 밑줄 제거 */
-  font-size: 28px;
-  font-weight: bold;
+.mode-switch button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
+.mode-switch button:hover {
+  background: #555;
+}
 
-/* flex로 로고, 검색창, 메뉴를 가로로 배치
-flex: 1/2/1 비율로 로고:검색창:메뉴를 고르게 분배
-hover 효과 넣어서 메뉴 선택할 때 감각 살림
-search input과 search button을 둥글게 고급스럽게 만듦
-박스 그림자(shadow) 추가해서 카드형 뉴스/쇼핑/블로그 만들었음
-모바일에서는 세로 정렬로 바뀌게 반응형 추가 */
+/* 모바일 전용 스타일 */
+body.mobile-mode header {
+  flex-direction: column;
+  align-items: flex-start;
+}
 
+body.mobile-mode .search-bar {
+  width: 100%;
+  margin: 10px 0;
+}
 
+body.mobile-mode .menu {
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
 
+body.mobile-mode .menu ul {
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
+body.mobile-mode .news-list,
+body.mobile-mode .shopping-list,
+body.mobile-mode .blog-list {
+  flex-direction: column;
+  align-items: center;
+}
 
+body.mobile-mode .news-item,
+body.mobile-mode .shopping-item,
+body.mobile-mode .blog-item {
+  width: 90%;
+  flex: none;
+}
