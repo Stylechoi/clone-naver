@@ -78,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const modeButton = document.getElementById('toggle-mode');
 
+  if (window.innerWidth <= 768) {
+    document.body.classList.add('mobile-mode');
+  }
+
   searchButton.addEventListener('click', function() {
     const keyword = searchInput.value.trim();
     if (keyword !== '') {
