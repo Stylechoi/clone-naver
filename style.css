@@ -207,5 +207,46 @@ body {
     transform: translateY(-5px);
   }
   
+  @media (max-width: 768px) {
+    /* 모바일 화면에서 적용할 CSS */
+  
+    .search-bar {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .search-bar input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .menu ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .menu ul li {
+      margin: 5px 0;
+    }
+  
+    .news-list,
+    .shopping-list,
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .news-item,
+    .shopping-item,
+    .blog-item {
+      width: 90%;
+      margin-bottom: 10px;
+    }
+  }
   
   
