@@ -1,0 +1,211 @@
+/* 1. 헤더 전체를 flex로 가로 정렬 */
+header {
+    background: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* 2. 메뉴 안의 리스트(ul)를 가로로 정렬 */
+  .menu ul {
+    display: flex;
+    gap: 20px; /* 메뉴 항목 사이 간격 */
+    list-style: none; /* ● 동그라미 제거 */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* 3. 메뉴 항목(li) 안의 링크 스타일 */
+  .menu li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+
+  .search-bar input {
+    width: 400px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    font-size: 16px;
+  }
+
+  /* 로고 스타일 */
+.logo {
+    font-size: 28px; /* 글자 크기 키우기 */
+    font-weight: bold; /* 글자 두껍게 */
+    color: #03C75A; /* 네이버 초록색 */
+  }
+  
+  /* 검색창 영역 스타일 */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 검색창과 버튼 사이 간격 */
+  }
+  
+  /* 검색 input 스타일 */
+  .search-bar input {
+    width: 400px;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  /* 검색 버튼 스타일 */
+  .search-bar button {
+    height: 40px;
+    padding: 0 20px;
+    background-color: #03C75A;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* 버튼 hover 효과 */
+  .search-bar button:hover {
+    background-color: #029e49;
+  }
+
+  .header__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  /* 각 영역 비율 잡기 */
+  .logo {
+    flex: 1;
+  }
+  
+  .search-bar {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  section {
+    margin-bottom: 60px;
+  }
+  
+  .news-list, .shopping-list {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .news-item, .shopping-item {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .news-item, .shopping-item {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 살짝 그림자 */
+    transition: transform 0.2s;
+  }
+  
+  .news-item:hover, .shopping-item:hover {
+    transform: translateY(-5px); /* 마우스 올리면 살짝 떠오름 */
+  }
+  
+  .footer {
+    background: #f5f5f5;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .footer__inner a {
+    color: #666;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .footer__inner a:hover {
+    text-decoration: underline;
+  }
+  
+/* 전체 body를 flex로 잡아준다 */
+body {
+    min-height: 100vh; /* 전체 화면 높이 채움 */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* main은 자동으로 커지고 */
+  main {
+    flex: 1;
+  }
+  
+  /* footer는 항상 아래 고정 */
+  footer {
+    background: #f5f5f5;
+    padding: 30px 0; /* 여기 padding도 약간 늘려주면 아래로 더 내려간다 */
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+  }
+  
+  .blog-list {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .blog-item {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .blog-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  
+  
